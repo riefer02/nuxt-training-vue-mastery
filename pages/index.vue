@@ -11,25 +11,24 @@
 </template>
 <script>
 import BookingCard from '@/components/BookingCard.vue'
+import { mapState } from 'vuex'
 export default {
   components: {
     BookingCard,
   },
-  async asyncData(context) {
+  async fetch({ store, error }) {
     try {
-      const response = await context.$axios.get(
-        'http://localhost:3000/bookings'
-      )
-      return {
-        bookings: response.data,
-      }
+      await store.dispatch('bookings/fetchEvents')
     } catch (e) {
-      context.error({
+      error({
         statusCode: 503,
         message: 'Unable to fetch bookings at this time. Please try again.',
       })
     }
   },
+  computed: mapState({
+    bookings: (state) => state.bookings.bookings,
+  }),
   head() {
     return {
       title: 'Booking Listing',
