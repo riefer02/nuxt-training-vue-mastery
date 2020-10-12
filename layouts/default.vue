@@ -7,6 +7,9 @@
 <script>
 import NavBar from '~/components/NavBar.vue'
 export default {
+  components: {
+    NavBar,
+  },
   head() {
     return {
       titleTemplate: '%s - Casa Patron',
@@ -19,9 +22,6 @@ export default {
         },
       ],
     }
-  },
-  components: {
-    NavBar,
   },
 }
 </script>

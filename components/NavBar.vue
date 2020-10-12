@@ -4,7 +4,7 @@
 
     <nav>
       <nuxt-link to="/">List</nuxt-link> |
-      <nuxt-link to="/create">Create a Booking</nuxt-link>
+      <nuxt-link to="/event/create">Create a Booking</nuxt-link>
     </nav>
   </div>
 </template>
